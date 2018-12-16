@@ -30,8 +30,9 @@ public class CalculatorController {
 			@RequestParam int b) {
 		int result = client.add(a, b); 
 		Operation op = new Operation(Operation.ADD, a, b, result);
+		log.info("Add operation: "+op);
 		repository.save(op);
-		return  String.format("Result = %d", result);
+		return  String.format("%d + %d = %d", a, b, result);
 	}
 	
 	@GetMapping("/all")
