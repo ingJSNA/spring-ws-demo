@@ -7,17 +7,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.example.ws.model.CalculatorRepository;
-import com.example.ws.model.OPERATION_TYPE;
-import com.example.ws.model.Operation;
 import com.example.ws.model.User;
 import com.example.ws.model.UserRepository;
 import com.example.ws.rest.TypicodeClient;
-import com.example.ws.soap.CalculatorClient;
 
 @Controller
 public class UserController {
@@ -37,7 +31,7 @@ public class UserController {
 		List<User> users =  client.getUsers();
 		
 		repository.saveAll(users);
-		
+		log.info(String.format("Users: %d", users.size()));
 		return repository.findAll();
 	}
 

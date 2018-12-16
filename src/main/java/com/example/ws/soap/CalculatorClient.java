@@ -1,7 +1,5 @@
 package com.example.ws.soap;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.ws.client.core.support.WebServiceGatewaySupport;
 import org.springframework.ws.soap.client.core.SoapActionCallback;
 
@@ -17,7 +15,6 @@ import calculator.wsdl.SubtractResponse;
 public class CalculatorClient extends WebServiceGatewaySupport {
 
 	private static final String url = "http://www.dneonline.com/calculator.asmx";
-	private static final Logger log = LoggerFactory.getLogger(CalculatorClient.class);
 
 	private Object callWebService(Object request, String soapAction) {
 		return getWebServiceTemplate().marshalSendAndReceive(url, request,
