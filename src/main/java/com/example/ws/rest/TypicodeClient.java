@@ -25,7 +25,7 @@ public class TypicodeClient {
 				new ParameterizedTypeReference<List<User>>() {
 				});
 		
-		log.info(String.format("Response user list: %s", response));
+		log.info(String.format("Response? %s", response.hasBody()));
 		return response.getBody();
 
 	}

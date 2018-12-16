@@ -3,6 +3,8 @@ package com.example.ws.model;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
@@ -12,19 +14,16 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @lombok.Data
 @lombok.NoArgsConstructor
-public class User {
+public class Address {
 	
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
-	private String name;
-	private String username;
-	private String email;
+	private String street;
+	private String suite;
+	private String city;
+	private String zipcode;
 	
 	@OneToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
-	private Address address;
-	private String phone;
-	private String website;
-	
-	@OneToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
-	private Company company;
+	private Geo geo;
 }
